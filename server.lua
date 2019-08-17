@@ -178,10 +178,7 @@ end
 AddEventHandler('onMySQLReady', function()
 
 	MySQL.Sync.execute("UPDATE owned_vehicles SET state=true WHERE state=false", {})
-	-- You have two choices with this. Either you need to add the following:
-        MySQL.Sync.execute("UPDATE owned_vehicles SET stored=true WHERE stored=false", {})
-	-- Or you need to remove this entire event handler and leave both the state and stored values alone
-	-- Otherwise you cause vehicles that have been destroyed, to be left in a "limbo" if a server restart occurs.
+	MySQL.Sync.execute("UPDATE owned_vehicles SET stored=true WHERE stored=false", {})
 
 end)
 -- Fin Fonction qui change les etats sorti en rentré lors d'un restart
